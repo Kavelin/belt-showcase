@@ -10,6 +10,19 @@
 <body>
 
   <div class="container">
+    <svg xmlns="http://www.w3.org/2000/svg" style="
+    position: absolute;
+">
+  <filter id="filter">
+    <feTurbulence baseFrequency=".001 .01" numOctaves="9" result="n"></feTurbulence>
+    <feDiffuseLighting surfaceScale="9" lighting-color="#DEBCA3">
+      <feDistantLight elevation="60" azimuth="-90"></feDistantLight>
+    </feDiffuseLighting>
+    
+    <feDisplacementMap in2="n" scale="50"></feDisplacementMap>
+  </filter>
+  
+</svg>
     <div class="dropzone" id="dropzone" onclick="document.getElementById('csv-file').click()">
       <div class="drop-text">Click or Drop Membership CSV File Here</div>
       <input type="file" id="csv-file" accept=".csv" />
