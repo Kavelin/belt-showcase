@@ -75,14 +75,14 @@
     }
 
     /* Belt Section Layout */
-    .showcase-board { display: flex; flex-direction: column; gap: 24px; }
+    .showcase-board { 
+        display: flex; flex-direction: column; 
+    }
 
     .belt-tier {
       background: var(--card-bg);
-      border-radius: 12px;
       border: 1px solid var(--border-color);
       overflow: hidden;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
     }
 
     .belt-header {
