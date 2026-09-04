@@ -101,7 +101,7 @@
         tierDiv.appendChild(headerDiv);
 
         const gridDiv = document.createElement('div');
-        gridDiv.className = 'student-grid ${belt.class}';
+        gridDiv.className = `student-grid ${belt.class}`;
 
         if (count === 0) {
           gridDiv.innerHTML = `<div class="empty-belt">No ninjas in this belt rank</div>`;
