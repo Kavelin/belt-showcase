@@ -128,16 +128,18 @@
     }
 
     .student-card {
-      background: var(--bg-color);
-      border: 1px solid var(--border-color);
-      padding: 12px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.15s ease;
-      cursor: pointer;
-      user-select: none;
+      
+    background: var(--bg-color);
+    box-sizing: border-box;
+    border-block: 4px solid black;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.15s ease;
+    color: black;
+    cursor: pointer;
+    user-select: none;
     }
     .student-card:hover { border-color: var(--accent); }
     .student-card.checked {
