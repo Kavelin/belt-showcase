@@ -5,176 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Belt Showcase Board</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
-  <style>
-    :root {
-      --bg-color: #0f172a;
-      --card-bg: #1e293b;
-      --text-color: #f8fafc;
-      --text-muted: #94a3b8;
-      --border-color: #334155;
-      --accent: #38bdf8;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      padding: 20px;
-      line-height: 1.5;
-    }
-
-    .container { max-width: 1200px; margin: 0 auto; }
-
-    header {
-      text-align: center;
-      margin-bottom: 24px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-color);
-    }
-    header h1 { font-size: 2rem; margin-bottom: 8px; }
-    header p { color: var(--text-muted); font-size: 0.95rem; }
-
-    /* Dropzone */
-    .dropzone {
-      border: 2px dashed var(--accent);
-      background: rgba(56, 189, 248, 0.05);
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      margin-bottom: 24px;
-    }
-    .dropzone:hover { background: rgba(56, 189, 248, 0.1); }
-    .dropzone input { display: none; }
-    .drop-text { font-size: 1.1rem; font-weight: 600; color: var(--accent); }
-
-    /* Control Bar & Stats */
-    .controls {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      background: var(--card-bg);
-      padding: 16px 20px;
-      border-radius: 10px;
-      margin-bottom: 24px;
-      border: 1px solid var(--border-color);
-    }
-    .search-box input {
-      background: var(--bg-color);
-      border: 1px solid var(--border-color);
-      color: var(--text-color);
-      padding: 8px 14px;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      width: 260px;
-    }
-    .stats-bar { display: flex; gap: 20px; font-size: 0.9rem; font-weight: 600; }
-    .stat-badge {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 4px 10px;
-      border-radius: 6px;
-      border: 1px solid var(--border-color);
-    }
-
-    /* Belt Section Layout */
-    .showcase-board { display: flex; flex-direction: column; gap: 24px; }
-
-    .belt-tier {
-      background: var(--card-bg);
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      overflow: hidden;
-      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3);
-    }
-
-    .belt-header {
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-    .belt-count {
-      font-size: 0.85rem;
-      padding: 2px 10px;
-      border-radius: 12px;
-      background: rgba(0, 0, 0, 0.3);
-      color: #fff;
-    }
-
-    /* Belt Themes */
-    .belt-black  { background: #000000; color: #ffffff; border-bottom: 3px solid #333; }
-    .belt-red    { background: #991b1b; color: #ffffff; }
-    .belt-brown  { background: #78350f; color: #ffffff; }
-    .belt-purple { background: #6b21a8; color: #ffffff; }
-    .belt-blue   { background: #1e40af; color: #ffffff; }
-    .belt-green  { background: #166534; color: #ffffff; }
-    .belt-orange { background: #c2410c; color: #ffffff; }
-    .belt-yellow { background: #eab308; color: #1e293b; }
-    .belt-white  { background: #f8fafc; color: #0f172a; border-bottom: 2px solid #cbd5e1; }
-
-    /* Student Grid */
-    .student-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 12px;
-      padding: 16px;
-    }
-
-    .student-card {
-      background: var(--bg-color);
-      border: 1px solid var(--border-color);
-      padding: 12px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      transition: all 0.15s ease;
-      cursor: pointer;
-      user-select: none;
-    }
-    .student-card:hover { border-color: var(--accent); }
-    .student-card.checked {
-      opacity: 0.55;
-      background: rgba(34, 197, 94, 0.1);
-      border-color: #22c55e;
-    }
-    .student-card.checked .student-name { text-decoration: line-through; }
-
-    .student-info { display: flex; flex-direction: column; }
-    .student-name { font-weight: 600; font-size: 0.95rem; }
-    .student-detail { font-size: 0.75rem; color: var(--text-muted); }
-
-    .audit-checkbox {
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-      accent-color: #22c55e;
-    }
-
-    .empty-belt {
-      padding: 16px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="container">
-    <header>
-      <h1>Ninja Showcase Audit Board</h1>
-      <p>Upload your membership CSV to verify physical belt showcase placements</p>
-    </header>
-
     <div class="dropzone" id="dropzone" onclick="document.getElementById('csv-file').click()">
       <div class="drop-text">Click or Drop Membership CSV File Here</div>
       <input type="file" id="csv-file" accept=".csv" />
@@ -186,8 +21,6 @@
       </div>
       <div class="stats-bar">
         <span class="stat-badge" id="total-count">Total: 0</span>
-        <span class="stat-badge" id="verified-count" style="color: #4ade80;">Verified: 0</span>
-        <span class="stat-badge" id="remaining-count" style="color: #f87171;">Remaining: 0</span>
       </div>
     </div>
 
