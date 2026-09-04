@@ -70,7 +70,7 @@
       currentData.forEach((row, index) => {
         const firstName = (row['Participant First Name'] || '').trim();
         const lastName = (row['Participant Last Name'] || '').trim();
-        const fullName = `${firstName} ${lastName}`.trim();
+        const fullName = `${firstName} ${lastName[0]}`.trim().toUpperCase();
         const rank = row['Rank'] || '';
         const normBelt = normalizeBeltName(rank);
 
@@ -78,7 +78,6 @@
           grouped[normBelt].push({
             id: index,
             name: fullName,
-            age: row['Age'] || '',
             status: row['Status'] || 'Active'
           });
           visibleTotal++;
@@ -118,7 +117,6 @@
             card.innerHTML = `
               <div class="student-info">
                 <span class="student-name">${student.name}</span>
-                ${student.age ? `<span class="student-detail">Age: ${student.age}</span>` : ''}
               </div>
               <input type="checkbox" class="audit-checkbox" ${isChecked ? 'checked' : ''} onclick="event.stopPropagation(); toggleCheck(${student.id});" />
             `;
