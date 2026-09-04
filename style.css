@@ -18,7 +18,15 @@
     }
 
     .container { max-width: 1200px; margin: 0 auto; }
-
+.container:after {
+    content: " ";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    filter: url(#filter);
+}
     header {
       text-align: center;
       margin-bottom: 24px;
@@ -32,7 +40,6 @@
     .dropzone {
       border: 2px dashed var(--accent);
       background: rgba(56, 189, 248, 0.05);
-      border-radius: 12px;
       padding: 30px;
       text-align: center;
       cursor: pointer;
@@ -52,7 +59,6 @@
       gap: 16px;
       background: var(--card-bg);
       padding: 16px 20px;
-      border-radius: 10px;
       margin-bottom: 24px;
       border: 1px solid var(--border-color);
     }
@@ -61,7 +67,7 @@
       border: 1px solid var(--border-color);
       color: var(--text-color);
       padding: 8px 14px;
-      border-radius: 6px;
+      border-radius: 4px;
       font-size: 0.95rem;
       width: 260px;
     }
@@ -69,7 +75,6 @@
     .stat-badge {
       background: rgba(255, 255, 255, 0.05);
       padding: 4px 10px;
-      border-radius: 6px;
       color: lightgreen;
       border: 1px solid var(--border-color);
     }
@@ -98,21 +103,21 @@
     .belt-count {
       font-size: 0.85rem;
       padding: 2px 10px;
-      border-radius: 12px;
-      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px; 
+      background: rgba(0, 0, 0, 0.8);
       color: #fff;
     }
 
     /* Belt Themes */
-    .belt-black  { background: #000000; color: #ffffff; border-bottom: 3px solid #333; }
-    .belt-red    { background: #991b1b; color: #ffffff; }
-    .belt-brown  { background: #78350f; color: #ffffff; }
-    .belt-purple { background: #6b21a8; color: #ffffff; }
-    .belt-blue   { background: #1e40af; color: #ffffff; }
-    .belt-green  { background: #166534; color: #ffffff; }
-    .belt-orange { background: #c2410c; color: #ffffff; }
-    .belt-yellow { background: #eab308; color: #1e293b; }
-    .belt-white  { background: #f8fafc; color: #0f172a; border-bottom: 2px solid #cbd5e1; }
+    .belt-black  { background: #000000; color: #fff; }
+    .belt-red    { background: #bd2121; color: #fff; }
+    .belt-brown  { background: #78350f; color: #fff; }
+    .belt-purple { background: #6b21a8; color: #fff; }
+    .belt-blue   { background: #295cd3; color: #fff; }
+    .belt-green  { background: #25ab58; color: #fff; }
+    .belt-orange { background: #c2410c; color: #fff; }
+    .belt-yellow { background: #eab308; color: #000; }
+    .belt-white  { background: #f8fafc; color: #000; }
 
     /* Student Grid */
     .student-grid {
